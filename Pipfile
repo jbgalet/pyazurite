@@ -12,3 +12,6 @@ arrow = "*"
 
 [requires]
 python_version = "3.7"
+
+[scripts]
+app = "python app.py"
