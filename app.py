@@ -14,9 +14,14 @@ data_folder = Path(r'C:\DATA')  # FIXME
 
 @app.route('/blob/<path:path>', methods=['HEAD', 'GET'])
 def web_blob(path):
+    print('Query for {}'.format(path))
+    # Strip data folder if present
+    path = path.replace(str(data_folder), '').lstrip(r'\/')
+
     cur_path = data_folder / path
 
     if not cur_path.exists():
+        print('File {} does not exists'.format(cur_path))
         abort(404)
 
     if request.method == 'HEAD':
