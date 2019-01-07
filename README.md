@@ -31,12 +31,12 @@ SELECT * FROM OPENROWSET(
 
 --- BULK INSERT With data and format file
 --- n.b. the documentation mistyped FORMATFILE_DATA_SOURCE
-BULK INSERT [domain_user]
+BULK INSERT [mytable]
    FROM 'myfile.tsv'
    WITH
    (
-	  DATA_SOURCE = 'PyAzurite',
-	  FORMATFILE_DATA_SOURCE = 'PyAzurite',
+      DATA_SOURCE = 'PyAzurite',
+      FORMATFILE_DATA_SOURCE = 'PyAzurite',
       FORMATFILE = 'myformat.fmt',
       DATAFILETYPE = 'widechar',
       CODEPAGE = 'RAW',
